@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JLPT Level <%= level %></title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>JLPT <%= level %> Words</h1>
+    <a href="/">🔙 Back</a>
+
+    <!-- Search Form -->
+    <form action="/words" method="get">
+        <input type="text" name="search" value="<%= searchQuery %>" placeholder="Search words..." />
+        <select name="level">
+            <option value="N5" <%= level === "N5" ? "selected" : "" %>>N5</option>
+            <option value="N4" <%= level === "N4" ? "selected" : "" %>>N4</option>
+            <option value="N3" <%= level === "N3" ? "selected" : "" %>>N3</option>
+            <option value="N2" <%= level === "N2" ? "selected" : "" %>>N2</option>
+            <option value="N1" <%= level === "N1" ? "selected" : "" %>>N1</option>
+        </select>
+        <button type="submit">Search</button>
+    </form>
+
+    <% if (words.length > 0) { %>
+        <ul>
+            <% words.forEach(word => { %>
+                <li><b><%= word.word %></b> (<%= word.romaji %>) - <%= word.meaning %></li>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <p>No words found matching "<%= searchQuery %>". Please try a different search term.</p>
+    <% } %>
+</body>
+</html>

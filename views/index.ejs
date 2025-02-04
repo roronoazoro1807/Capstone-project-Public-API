@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JLPT Word Explorer</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>JLPT Word Explorer</h1>
+
+    <form action="/words" method="get">
+        <input type="text" name="search" value="<%= searchQuery %>" placeholder="Search words..." />
+        <select name="level">
+            <option value="N5" <%= level === "N5" ? "selected" : "" %>>N5</option>
+            <option value="N4" <%= level === "N4" ? "selected" : "" %>>N4</option>
+            <option value="N3" <%= level === "N3" ? "selected" : "" %>>N3</option>
+            <option value="N2" <%= level === "N2" ? "selected" : "" %>>N2</option>
+            <option value="N1" <%= level === "N1" ? "selected" : "" %>>N1</option>
+        </select>
+        <button type="submit">Search</button>
+    </form>
+</body>
+</html>
