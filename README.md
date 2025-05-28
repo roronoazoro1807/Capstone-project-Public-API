@@ -51,5 +51,3 @@ The API returns the word along with its **meaning**, **reading** (hiragana), and
 - **`views/`**: Contains the EJS templates for rendering the data.
 - **`routes/`**: Contains the Express routes for handling the API requests and rendering views.
 - **`index.js`**: The main file where the Express server is initialized.
-
-give it a try!
